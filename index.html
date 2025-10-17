@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Undangan Pernikahan — Dimas & Rina</title>
+
+  <!-- Ikon (Font Awesome CDN) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#eaf6ff;
+      --blue-1:#0ea5e9;
+      --blue-2:#0284c7;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.85);
+      --glass-2: rgba(255,255,255,0.9);
+      --max-width:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Cormorant Garamond', serif;
+      background: var(--bg);
+      color: #103042;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior: smooth;
+      background-image: url('pasanganmenikah.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* Overlay untuk meningkatkan keterbacaan */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(2,132,199,0.15) 0%, rgba(2,132,199,0.05) 100%);
+      z-index: -1;
+    }
+
+    .container {
+      width:100%;
+      max-width: var(--max-width);
+      margin:0 auto;
+      position:relative;
+      z-index:2;
+      padding: 1rem;
+    }
+
+    /* invitation card */
+    .invitation-card{
+      width:100%;
+      max-width:700px;
+      margin: 3rem auto;
+      background: var(--glass);
+      border-radius:20px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 20px 50px rgba(2,132,199,0.15);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    /* decorative border */
+    .invitation-card::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border: 1px solid rgba(2,132,199,0.1);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .invitation-card h1{
+      margin:0 0 1.5rem 0;
+      font-size:1.3rem;
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .couple-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: 5rem;
+      color: var(--blue-2);
+      letter-spacing: 2px;
+      margin: 1.5rem 0;
+      line-height: 1.1;
+      text-shadow: 0 2px 10px rgba(2,132,199,0.1);
+    }
+
+    .date-line{
+      margin: 2rem 0;
+      color: var(--muted);
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    .countdown{
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .countdown .unit{
+      background: var(--card);
+      padding: 1.2rem 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(2,132,199,0.1);
+      min-width: 100px;
+      text-align: center;
+      border: 1px solid rgba(2,132,199,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .countdown .unit:hover {
+      transform: translateY(-5px);
+    }
+
+    .countdown .value{
+      font-weight: 600;
+      font-size: 2rem;
+      color: var(--blue-2);
+      font-family: 'Open Sans', sans-serif;
+    }
+    .countdown .label{
+      display:block;
+      font-size: .9rem;
+      color: var(--muted);
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cta-row{
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      padding: 1rem 2.2rem;
+      border-radius: 50px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 500;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary{
+      background: linear-gradient(135deg, var(--blue-1), var(--blue-2));
+      color: white;
+      box-shadow: 0 10px 25px rgba(2,132,199,0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(2,132,199,0.4);
+    }
+
+    .btn-secondary{
+      background: transparent;
+      color: var(--blue-2);
+      border: 1px solid rgba(2,132,199,0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(2,132,199,0.05);
+      transform: translateY(-3px);
+    }
+
+    /* WhatsApp button dengan warna biru */
+    .btn-whatsapp {
+      background: linear-gradient(135deg, var(--blue-1), var(--blue-2));
+      color: white;
+      box-shadow: 0 10px 25px rgba(2,132,199,0.3);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(2,132,199,0.4);
+      background: linear-gradient(135deg, #0d95d8, #0274ad);
+    }
+
+    /* content sections (hidden initially) */
+    .content {
+      width:100%;
+      max-width:var(--max-width);
+      margin: 2rem auto;
+      padding: 1.6rem;
+      display:block;
+    }
+
+    .content.hidden {
+      height:0; padding:0; visibility:hidden; opacity:0; overflow:hidden;
+      transform: translateY(20px);
+    }
+
+    .content.visible {
+      visibility:visible; opacity:1; height:auto; padding:1.6rem;
+      transform: translateY(0);
+      transition: all .6s cubic-bezier(.2,.9,.2,1);
+    }
+
+    .section{
+      background:var(--card);
+      border-radius:16px;
+      padding:2.5rem;
+      margin-bottom:2rem;
+      box-shadow: 0 10px 30px rgba(2,132,199,0.08);
+      border: 1px solid rgba(2,132,199,0.1);
+    }
+
+    .section h3 { 
+      margin:.2rem 0 1.5rem; 
+      color: var(--blue-2); 
+      font-size: 2rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .section .muted{ 
+      color:var(--muted); 
+      font-size:1.2rem; 
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* schedule grid */
+    .schedule{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2rem;
+    }
+    .schedule .item{
+      padding:2rem; 
+      border-radius:12px; 
+      background:linear-gradient(180deg, rgba(2,132,199,0.02), rgba(2,132,199,0.01));
+      border: 1px solid rgba(2,132,199,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .schedule .item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .time{ font-weight:600; color:var(--blue-2); font-size: 1.3rem; margin: 0.5rem 0; }
+
+    /* Google map responsive */
+    .map-wrap{ border-radius:12px; overflow:hidden; height:350px; border: 1px solid rgba(2,132,199,0.1); }
+    .map-wrap iframe{ width:100%; height:100%; border:0; display:block }
+
+    /* gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap:1.2rem;
+    }
+    .gallery img{
+      width:100%;
+      display:block;
+      border-radius:10px;
+      cursor:pointer;
+      transition: transform .3s ease;
+      border: 1px solid rgba(2,132,199,0.1);
+    }
+    .gallery img:hover{ transform: scale(1.05) }
+
+    /* floating side nav */
+    .floating-nav{
+      position:fixed;
+      right:25px;
+      top:50%;
+      transform:translateY(-50%);
+      display:flex;
+      flex-direction:column;
+      gap:.8rem;
+      z-index:999;
+    }
+    .floating-nav a{
+      width:50px; height:50px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      background:var(--glass-2); color:var(--blue-2);
+      box-shadow: 0 8px 20px rgba(2,132,199,0.1);
+      text-decoration:none; font-size:1.2rem;
+      transition: transform .2s ease, background .2s ease;
+      border: 1px solid rgba(2,132,199,0.1);
+    }
+    .floating-nav a:hover{ transform: translateX(-6px); background:linear-gradient(135deg,var(--blue-1),var(--blue-2)); color:white }
+
+    /* floating music & QR buttons bottom-left */
+    .floating-actions{
+      position:fixed;
+      left:25px;
+      bottom:30px;
+      display:flex;
+      gap:.8rem;
+      z-index:999;
+    }
+    .fab{
+      width:55px; height:55px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      background:var(--blue-2); color:white; border:none;
+      box-shadow: 0 10px 25px rgba(2,132,199,0.2);
+      cursor:pointer;
+      transition: all 0.3s ease;
+    }
+    .fab:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(2,132,199,0.3);
+    }
+    .fab.toggled{ background:var(--blue-1) }
+
+    /* small QR modal (simple) */
+    .qr-modal{
+      display:none;
+      position:fixed;
+      z-index:1200;
+      left:0; top:0; right:0; bottom:0;
+      align-items:center; justify-content:center;
+      background: rgba(0,0,0,0.6);
+    }
+    .qr-card{
+      width:350px; max-width:90%;
+      background:var(--card); padding:2rem; border-radius:16px;
+      text-align:center;
+      border: 1px solid rgba(2,132,199,0.1);
+      box-shadow: 0 20px 40px rgba(2,132,199,0.15);
+    }
+    .qr-card img{ width:220px; max-width:80%; display:block; margin:0 auto 1rem; border-radius: 8px; }
+
+    /* Modal Kirim Ucapan */
+    .ucapan-modal{
+      display:none;
+      position:fixed;
+      z-index:1300;
+      left:0; top:0; right:0; bottom:0;
+      align-items:center; justify-content:center;
+      background: rgba(0,0,0,0.7);
+    }
+    .ucapan-card{
+      width:500px;
+      max-width:90%;
+      background:var(--card);
+      padding:2.5rem;
+      border-radius:16px;
+      border: 1px solid rgba(2,132,199,0.1);
+      box-shadow: 0 25px 50px rgba(2,132,199,0.2);
+    }
+    .ucapan-card h3{
+      margin:0 0 1.5rem 0;
+      color: var(--blue-2);
+      text-align:center;
+      font-size:1.8rem;
+    }
+    .form-group{
+      margin-bottom:1.5rem;
+    }
+    .form-group label{
+      display:block;
+      margin-bottom:0.5rem;
+      color:var(--muted);
+      font-weight:500;
+    }
+    .form-control{
+      width:100%;
+      padding:0.8rem 1rem;
+      border:1px solid rgba(2,132,199,0.2);
+      border-radius:8px;
+      font-family:inherit;
+      font-size:1rem;
+      transition: border-color 0.3s ease;
+    }
+    .form-control:focus{
+      outline:none;
+      border-color:var(--blue-1);
+      box-shadow:0 0 0 3px rgba(2,132,199,0.1);
+    }
+    textarea.form-control{
+      resize:vertical;
+      min-height:120px;
+    }
+    .form-actions{
+      display:flex;
+      gap:1rem;
+      margin-top:2rem;
+    }
+    .form-actions .btn{
+      flex:1;
+    }
+
+    /* responsive tweaks */
+    @media (max-width:768px){
+      .invitation-card{ padding: 2rem 1.5rem; margin: 2rem auto; }
+      .couple-names{ font-size: 4rem; }
+      .countdown{ gap: 1rem; }
+      .countdown .unit{ min-width: 80px; padding: 1rem 0.8rem; }
+      .countdown .value{ font-size: 1.8rem; }
+      .schedule{ grid-template-columns: 1fr; }
+      .floating-nav{ right:15px; }
+      .floating-actions{ left:15px; }
+      .section{ padding: 1.5rem; }
+      .ucapan-card{ padding:2rem; }
+    }
+
+    @media (max-width:480px){
+      .couple-names{ font-size: 3.2rem; }
+      .date-line{ font-size: 1.2rem; }
+      .cta-row{ flex-direction: column; width: 100%; }
+      .btn{ width: 100%; justify-content: center; }
+      .countdown .unit{ min-width: 70px; padding: 0.8rem 0.5rem; }
+      .countdown .value{ font-size: 1.5rem; }
+      .form-actions{ flex-direction:column; }
+    }
+
+    /* subtle entrance animations */
+    .fade-up{ opacity:0; transform:translateY(20px); transition: all .6s ease; }
+    .fade-up.visible{ opacity:1; transform:none; }
+    
+    /* decorative elements */
+    .floral-divider {
+      margin: 2rem auto;
+      width: 180px;
+      height: 25px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 25"><path d="M20,12.5 Q40,5 60,12.5 T100,12.5 T140,12.5 T160,12.5" stroke="%230284c7" fill="none" stroke-width="1.5"/><path d="M30,12.5 Q50,18 70,12.5 T110,12.5 T150,12.5" stroke="%230ea5e9" fill="none" stroke-width="1"/></svg>');
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.7;
+    }
+    
+    /* Header kecil */
+    .small-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      color: #0ea5e9;
+    }
+    
+    .logo-small{ 
+      font-weight:700; 
+      color: white; 
+      padding:.4rem .8rem; 
+      background:#0ea5e9; 
+      border-radius:10px; 
+      display:inline-block;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Dekorasi bunga melingkari nama pasangan */
+    .flower-frame {
+      position: relative;
+      display: inline-block;
+      margin: 2rem 0;
+    }
+
+    .flower-frame::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      left: -60px;
+      right: -60px;
+      bottom: -40px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" fill="none"><path d="M50,100 Q75,50 100,100 T150,100 T200,100 T250,100 T300,100 T350,100" stroke="%230ea5e9" fill="none" stroke-width="8" stroke-linecap="round"/><path d="M60,90 Q85,40 110,90 T160,90 T210,90 T260,90 T310,90" stroke="%230284c7" fill="none" stroke-width="6" stroke-linecap="round"/><circle cx="75" cy="85" r="8" fill="%230ea5e9"/><circle cx="125" cy="95" r="6" fill="%230284c7"/><circle cx="175" cy="105" r="7" fill="%230ea5e9"/><circle cx="225" cy="95" r="5" fill="%230284c7"/><circle cx="275" cy="85" r="6" fill="%230ea5e9"/><circle cx="325" cy="95" r="7" fill="%230284c7"/></svg>');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.3;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .flower-frame-content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+
+    /* Untuk mobile */
+    @media (max-width: 768px) {
+      .flower-frame::before {
+        top: -20px;
+        left: -30px;
+        right: -30px;
+        bottom: -20px;
+      }
+      
+      .flower-frame-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MAIN INVITATION CARD -->
+  <main class="container">
+    <div class="small-header">
+      <div class="logo-small">D & R</div>
+      <div style="font-weight:600; font-size: 1.1rem;">Undangan Digital</div>
+    </div>
+    
+    <div class="invitation-card">
+      <h1>Dengan rasa syukur kami mengundang</h1>
+      
+      <div class="couple-names">Dimas &amp; Rina</div>
+      
+      <div class="date-line">Jumat, <strong>12 Juni 2026</strong> · 10:00 WIB</div>
+      
+      <div class="floral-divider"></div>
+      
+      <div class="countdown" id="countdown">
+        <div class="unit">
+          <div class="value" id="cd-days">239</div>
+          <span class="label">Hari</span>
+        </div>
+        <div class="unit">
+          <div class="value" id="cd-hours">14</div>
+          <span class="label">Jam</span>
+        </div>
+        <div class="unit">
+          <div class="value" id="cd-mins">18</div>
+          <span class="label">Menit</span>
+        </div>
+        <div class="unit">
+          <div class="value" id="cd-secs">39</div>
+          <span class="label">Detik</span>
+        </div>
+      </div>
+      
+      <div class="cta-row">
+        <button id="openInviteBtn" class="btn btn-primary" aria-controls="invitationContent">
+          <i class="fa-solid fa-gift"></i> Buka Undangan
+        </button>
+
+        <button id="openUcapanBtn" class="btn btn-secondary">
+          <i class="fa-solid fa-envelope"></i> Kirim Ucapan
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- INVITATION CONTENT (muncul saat tombol diklik) -->
+  <section class="container">
+    <div id="invitationContent" class="content hidden" aria-hidden="true">
+
+      <!-- opening / doa -->
+      <article class="section fade-up">
+        <h3>Assalamu'alaikum Warahmatullahi Wabarakatuh</h3>
+        <p class="muted">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan putra-putri kami.</p>
+        <div class="floral-divider"></div>
+        
+        <!-- Nama pasangan dengan dekorasi bunga -->
+        <div class="flower-frame">
+          <div class="flower-frame-content">
+            <p style="text-align: center; font-size: 2.5rem; font-weight: 600; color: var(--blue-2); margin: 0;">
+              <strong>Dimas &amp; Rina</strong>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- schedule -->
+      <article id="acara" class="section fade-up">
+        <h3>Acara</h3>
+        <div class="schedule">
+          <div class="item">
+            <div class="muted" style="font-size: 1.3rem;">Akad Nikah</div>
+            <div class="time">12 Juni 2026 · 09:00 - 11:00</div>
+            <div class="muted" style="margin-top:1rem; font-size: 1.1rem;">Masjid Al-Hikmah, Jl. Contoh No.10</div>
+          </div>
+          <div class="item">
+            <div class="muted" style="font-size: 1.3rem;">Resepsi</div>
+            <div class="time">12 Juni 2026 · 12:30 - 15:00</div>
+            <div class="muted" style="margin-top:1rem; font-size: 1.1rem;">Gedung Serba Guna Harmoni</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- map -->
+      <article id="lokasi" class="section fade-up">
+        <h3>Lokasi</h3>
+        <p class="muted" style="text-align: center; margin-bottom: 1.5rem;">Klik peta untuk buka di Google Maps</p>
+        <div class="map-wrap">
+          <!-- Ganti src dengan embed maps yang sesuai alamat acara -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.1234567890123!2d106.821!3d-6.175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDAwJzAwLjAiUyAxMDbCsDUwJzAwLjAiRQ!5e0!3m2!1sid!2sid!4v0000000000000"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </article>
+
+      <!-- gallery -->
+      <article id="galeri" class="section fade-up">
+        <h3>Galeri</h3>
+        <div class="gallery">
+          <img src="koleksi1.png" alt="Galeri 1">
+          <img src="koleksi2.png" alt="Galeri 2">
+          <img src="koleksi3.png" alt="Galeri 3">
+          <img src="koleksi4.png" alt="Galeri 4">
+        </div>
+      </article>
+
+      <!-- doa & pesan -->
+      <article id="doa" class="section fade-up">
+        <h3>Pesan & Doa</h3>
+        <p class="muted">Mohon doa restu agar pernikahan kami dilimpahi kebahagiaan, kesehatan, dan keberkahan. Kehadiran serta doa Bapak/Ibu/Saudara/i sangat berarti bagi kami.</p>
+      </article>
+
+      <!-- contact / rsvp -->
+      <article id="contact" class="section fade-up">
+        <h3>Kontak & RSVP</h3>
+        <p class="muted">Hubungi kami untuk konfirmasi kehadiran atau pertanyaan:</p>
+        
+        <div style="margin: 2rem 0; text-align: center;">
+          <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp" style="text-decoration: none;">
+            <i class="fa-brands fa-whatsapp"></i> Hubungi via WhatsApp
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- floating nav (side icons) -->
+  <nav class="floating-nav" aria-hidden="false" title="Navigasi Undangan">
+    <a href="#top" data-target="hero" aria-label="Home"><i class="fa-solid fa-house"></i></a>
+    <a href="#acara" data-target="acara" aria-label="Acara"><i class="fa-solid fa-ring"></i></a>
+    <a href="#lokasi" data-target="lokasi" aria-label="Lokasi"><i class="fa-solid fa-map-location-dot"></i></a>
+    <a href="#galeri" data-target="galeri" aria-label="Galeri"><i class="fa-solid fa-camera"></i></a>
+    <a href="#contact" data-target="contact" aria-label="Kontak"><i class="fa-solid fa-envelope"></i></a>
+  </nav>
+
+  <!-- floating actions (music + QR) -->
+  <div class="floating-actions" aria-hidden="false">
+    <button id="musicToggle" class="fab" aria-pressed="false" title="Play / Pause Musik"><i id="musicIcon" class="fa-solid fa-music"></i></button>
+    <button id="qrBtn" class="fab" title="Tampilkan QR Code"><i class="fa-solid fa-qrcode"></i></button>
+  </div>
+
+  <!-- QR modal -->
+  <div id="qrModal" class="qr-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="qr-card">
+      <h4>Scan untuk informasi & RSVP</h4>
+      <img src="qrcode.png" alt="QR Code (ganti dengan QR Anda)">
+      <p style="font-size:1rem; color:var(--muted); margin: 1rem 0;">Scan untuk membuka peta / daftar tamu / formulir RSVP.</p>
+      <div style="margin-top:1rem">
+        <button id="closeQr" class="btn btn-secondary">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Kirim Ucapan -->
+  <div id="ucapanModal" class="ucapan-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="ucapan-card">
+      <h3>Kirim Ucapan & Doa</h3>
+      <form id="ucapanForm">
+        <div class="form-group">
+          <label for="nama">Nama Anda</label>
+          <input type="text" id="nama" class="form-control" placeholder="Masukkan nama Anda" required>
+        </div>
+        <div class="form-group">
+          <label for="ucapan">Ucapan & Doa</label>
+          <textarea id="ucapan" class="form-control" placeholder="Tuliskan ucapan dan doa terbaik Anda untuk Dimas & Rina..." required></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" id="closeUcapan" class="btn btn-secondary">Batal</button>
+          <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i> Kirim via Gmail
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- audio (hidden) -->
+  <audio id="bgMusic" src="music.mp3" preload="auto" loop></audio>
+
+  <!-- Tambahkan Font Awesome untuk ikon WhatsApp -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <script>
+    // ---------- Config ----------
+    const weddingDateISO = '2026-06-12T10:00:00';
+    const emailPasangan = 'undangan@dimasrina.com'; // Ganti dengan email pasangan
+
+    // Countdown logic
+    const target = new Date(weddingDateISO).getTime();
+    const cdDays = document.getElementById('cd-days');
+    const cdHours = document.getElementById('cd-hours');
+    const cdMins = document.getElementById('cd-mins');
+    const cdSecs = document.getElementById('cd-secs');
+
+    function updateCountdown(){
+      const now = Date.now();
+      const diff = target - now;
+      if (diff <= 0){
+        cdDays.textContent = '00';
+        cdHours.textContent = '00';
+        cdMins.textContent = '00';
+        cdSecs.textContent = '00';
+        clearInterval(cdTimer);
+        return;
+      }
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const secs = Math.floor((diff % (1000*60)) / 1000);
+      cdDays.textContent = String(days).padStart(2,'0');
+      cdHours.textContent = String(hours).padStart(2,'0');
+      cdMins.textContent = String(mins).padStart(2,'0');
+      cdSecs.textContent = String(secs).padStart(2,'0');
+    }
+    const cdTimer = setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Open invitation content
+    const openBtn = document.getElementById('openInviteBtn');
+    const invContent = document.getElementById('invitationContent');
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    const musicIcon = document.getElementById('musicIcon');
+
+    let contentOpened = false;
+
+    openBtn.addEventListener('click', () => {
+      if(!contentOpened){
+        invContent.classList.remove('hidden');
+        invContent.classList.add('visible');
+        invContent.setAttribute('aria-hidden','false');
+        bgMusic.play().catch(()=>{ /* autoplay blocked */ });
+        musicToggle.classList.add('toggled');
+        musicToggle.setAttribute('aria-pressed','true');
+        musicIcon.className = 'fa-solid fa-pause';
+        contentOpened = true;
+
+        requestAnimationFrame(()=> {
+          document.querySelectorAll('.fade-up').forEach((el,i) => {
+            setTimeout(()=> el.classList.add('visible'), 120 * i);
+          });
+        });
+      }
+      invContent.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    // music toggle button behavior
+    musicToggle.addEventListener('click', () => {
+      if(bgMusic.paused){
+        bgMusic.play();
+        musicToggle.classList.add('toggled');
+        musicToggle.setAttribute('aria-pressed','true');
+        musicIcon.className = 'fa-solid fa-pause';
+      } else {
+        bgMusic.pause();
+        musicToggle.classList.remove('toggled');
+        musicToggle.setAttribute('aria-pressed','false');
+        musicIcon.className = 'fa-solid fa-music';
+      }
+    });
+
+    // Modal Kirim Ucapan Logic
+    const openUcapanBtn = document.getElementById('openUcapanBtn');
+    const ucapanModal = document.getElementById('ucapanModal');
+    const closeUcapan = document.getElementById('closeUcapan');
+    const ucapanForm = document.getElementById('ucapanForm');
+
+    openUcapanBtn.addEventListener('click', () => {
+      ucapanModal.style.display = 'flex';
+      ucapanModal.setAttribute('aria-hidden','false');
+    });
+
+    closeUcapan.addEventListener('click', () => {
+      ucapanModal.style.display = 'none';
+      ucapanModal.setAttribute('aria-hidden','true');
+    });
+
+    ucapanModal.addEventListener('click', (e)=>{
+      if(e.target === ucapanModal) { 
+        ucapanModal.style.display = 'none'; 
+        ucapanModal.setAttribute('aria-hidden','true'); 
+      }
+    });
+
+    // Form submission untuk Gmail
+    ucapanForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const nama = document.getElementById('nama').value;
+      const ucapan = document.getElementById('ucapan').value;
+      
+      // Membuat subject dan body email
+      const subject = `Ucapan Pernikahan dari ${nama}`;
+      const body = `Halo Dimas & Rina,
+
+${ucapan}
+
+Salam hangat,
+${nama}
+
+---
+*Ucapan ini dikirim melalui undangan digital pernikahan Dimas & Rina*`;
+      
+      // Encode untuk URL
+      const encodedSubject = encodeURIComponent(subject);
+      const encodedBody = encodeURIComponent(body);
+      
+      // Membuka Gmail dengan template
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailPasangan}&su=${encodedSubject}&body=${encodedBody}`;
+      
+      window.open(gmailUrl, '_blank');
+      
+      // Reset form dan tutup modal
+      ucapanForm.reset();
+      ucapanModal.style.display = 'none';
+      ucapanModal.setAttribute('aria-hidden','true');
+      
+      // Tampilkan konfirmasi
+      alert('Gmail akan terbuka dengan ucapan Anda. Silakan kirim email tersebut kepada Dimas & Rina.');
+    });
+
+    // Floating nav: smooth scroll to section anchors and highlight
+    document.querySelectorAll('.floating-nav a').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const href = a.getAttribute('href');
+        if(href === '#top' || href === 'hero'){
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const target = document.querySelector(href);
+          if(target){
+            if(invContent.classList.contains('hidden')){
+              openBtn.click();
+              setTimeout(()=> target.scrollIntoView({behavior:'smooth', block:'start'}), 550);
+            } else {
+              target.scrollIntoView({behavior:'smooth', block:'start'});
+            }
+          }
+        }
+      });
+    });
+
+    // gallery images open in new tab or enlarge (simple): open image in new tab
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.addEventListener('click', ()=> {
+        window.open(img.src, '_blank');
+      });
+    });
+
+    // QR modal logic
+    const qrBtn = document.getElementById('qrBtn');
+    const qrModal = document.getElementById('qrModal');
+    const closeQr = document.getElementById('closeQr');
+    qrBtn.addEventListener('click', ()=> {
+      qrModal.style.display = 'flex';
+      qrModal.setAttribute('aria-hidden','false');
+    });
+    closeQr.addEventListener('click', ()=> {
+      qrModal.style.display = 'none';
+      qrModal.setAttribute('aria-hidden','true');
+    });
+    qrModal.addEventListener('click', (e)=>{
+      if(e.target === qrModal) { qrModal.style.display = 'none'; qrModal.setAttribute('aria-hidden','true'); }
+    });
+
+    // enable keyboard escape untuk semua modal
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape'){
+        qrModal.style.display = 'none';
+        qrModal.setAttribute('aria-hidden','true');
+        ucapanModal.style.display = 'none';
+        ucapanModal.setAttribute('aria-hidden','true');
+      }
+    });
+
+    // reveal fade-up elements if content already visible on load (rare)
+    document.addEventListener('DOMContentLoaded', ()=> {
+      if(!invContent.classList.contains('hidden')) {
+        document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+      }
+    });
+
+    // Accessibility: if user pauses music via system, update icon
+    bgMusic.addEventListener('play', ()=> { musicIcon.className = 'fa-solid fa-pause'; musicToggle.classList.add('toggled'); });
+    bgMusic.addEventListener('pause', ()=> { musicIcon.className = 'fa-solid fa-music'; musicToggle.classList.remove('toggled'); });
+
+  </script>
+</body>
+</html>
